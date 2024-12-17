@@ -1,13 +1,13 @@
-package fr.uge.poo.paint.ex5;
+package fr.uge.poo.paint.ex6;
 
 import java.awt.*;
 import java.util.Objects;
 
-public class Rectangle implements Shape {
+public class Ellipse implements Shape {
     private final Integer[] coords;
     private Color color = Color.BLACK;
 
-    public Rectangle(final Integer[] coords) {
+    public Ellipse(final Integer[] coords) {
         Objects.requireNonNull(coords);
         this.coords = coords;
     }
@@ -15,7 +15,7 @@ public class Rectangle implements Shape {
     @Override
     public void draw(Graphics2D graphics) {
         graphics.setColor(color);
-        graphics.drawLine(coords[0], coords[1], coords[2], coords[3]);
+        graphics.drawOval(coords[0], coords[1], coords[2], coords[3]);
     }
 
     @Override
@@ -29,5 +29,15 @@ public class Rectangle implements Shape {
     public void setColor(Color color) {
         Objects.requireNonNull(color);
         this.color = color;
+    }
+
+    @Override
+    public int getMaxX() {
+        return coords[0]+coords[2];
+    }
+
+    @Override
+    public int getMaxY() {
+        return  coords[1]+coords[3];
     }
 }

@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex3;
+package fr.uge.poo.paint.ex6;
 
 import java.io.IOException;
 import java.nio.file.Files;

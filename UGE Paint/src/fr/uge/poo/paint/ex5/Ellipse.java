@@ -20,7 +20,9 @@ public class Ellipse implements Shape {
 
     @Override
     public double distance(int x, int y) {
-        return Math.sqrt(Math.pow(coords[0] - x, 2) + Math.pow(coords[1] - y, 2));
+        int x0 = (coords[0] + coords[0] + coords[2]) / 2;
+        int y0 = (coords[1] + coords[1] + coords[3]) / 2;
+        return Math.sqrt(Math.pow(x0 - x, 2) + Math.pow(y0 - y, 2));
     }
 
     @Override

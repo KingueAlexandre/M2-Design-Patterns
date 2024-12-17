@@ -1,11 +1,10 @@
-package fr.uge.poo.paint.ex4;
+package fr.uge.poo.paint.ex7;
 
 import java.awt.*;
 import java.util.Objects;
 
 public class Line implements Shape {
     private final Integer[] coords;
-    private Color color = Color.WHITE;
 
     public Line(final Integer[] coords) {
         Objects.requireNonNull(coords);
@@ -13,9 +12,8 @@ public class Line implements Shape {
     }
 
     @Override
-    public void draw(Graphics2D graphics) {
-        graphics.setColor(color);
-        graphics.drawLine(coords[0], coords[1], coords[2], coords[3]);
+    public void draw(Canvas graphics, Canvas.CanvaColor color) {
+        graphics.drawRect(coords[0], coords[1], coords[2], coords[3], color);
     }
 
     @Override
@@ -25,9 +23,14 @@ public class Line implements Shape {
         return Math.sqrt(Math.pow(x0 - x, 2) + Math.pow(y0 - y, 2));
     }
 
+
     @Override
-    public void setColor(Color color) {
-        Objects.requireNonNull(color);
-        this.color = color;
+    public int getMaxX() {
+        return Math.max(coords[0], coords[2]);
+    }
+
+    @Override
+    public int getMaxY() {
+        return Math.max(coords[1], coords[3]);
     }
 }

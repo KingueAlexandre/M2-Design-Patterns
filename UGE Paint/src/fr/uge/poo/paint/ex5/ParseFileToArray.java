@@ -17,7 +17,7 @@ public class ParseFileToArray {
     ParseFileToArray(String pathFile) throws IOException {
         Objects.requireNonNull(pathFile);
         this.pathFile = pathFile;
-        filePath = Paths.get("draw2.txt");
+        filePath = Paths.get(pathFile);
 
         try(Stream<String> lines = Files.lines(filePath)){
             linesInFile = lines.collect(Collectors.toList());

@@ -12,6 +12,6 @@ public class Rectangle implements Shape{
 
     @Override
     public void draw(Graphics2D graphics) {
-        graphics.drawLine(coords[0], coords[1], coords[2], coords[3]);
+        graphics.drawRect(coords[0], coords[1], coords[2], coords[3]);
     }
 }

@@ -1,4 +1,4 @@
-package fr.uge.poo.paint.ex5;
+package fr.uge.poo.paint.ex6;
 
 import java.awt.*;
 import java.util.Objects;
@@ -29,5 +29,15 @@ public class Rectangle implements Shape {
     public void setColor(Color color) {
         Objects.requireNonNull(color);
         this.color = color;
+    }
+
+    @Override
+    public int getMaxX() {
+        return coords[0]+coords[2];
+    }
+
+    @Override
+    public int getMaxY() {
+        return  coords[1]+coords[3];
     }
 }

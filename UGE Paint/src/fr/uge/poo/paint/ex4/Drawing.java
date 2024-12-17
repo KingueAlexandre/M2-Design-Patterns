@@ -26,10 +26,10 @@ public class Drawing {
     public void callback(SimpleGraphics area, int x, int y) {
         var shape = shapes.stream().min((a,b) -> Double.compare(a.distance(x, y), b.distance(x, y))).get();
         var pos = shapes.indexOf(shape);
-        shape.setColor(Color.black);
         if(posNear != -1) {
             shapes.get(posNear).setColor(Color.WHITE);
         }
+        shape.setColor(Color.black);
         area.clear(Color.WHITE);
         posNear = pos;
         area.render(shape::draw);
