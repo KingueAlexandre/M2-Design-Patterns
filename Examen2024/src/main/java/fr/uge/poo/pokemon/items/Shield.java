@@ -1,0 +1,68 @@
+package fr.uge.poo.pokemon.items;
+
+public class Shield implements Equipement{
+    private final int defUp;
+
+    public Shield(int defUp) {
+        if (defUp < 0){
+            throw new IllegalArgumentException("stat < 0");
+        }
+        this.defUp = defUp;
+    }
+
+    /*Solution 1*/
+    @Override
+    public int newStat(int stat) {
+        return stat * defUp;
+    }
+    @Override
+    public TypeEquip type() {
+        return TypeEquip.DEFENSE;
+    }
+
+    /*Solution 2*/
+    @Override
+    public PokemonInterface equip(PokemonInterface pokemon) {
+        return new PokemonInterface() {
+            @Override
+            public String name() {
+                return pokemon.name();
+            }
+
+            @Override
+            public int strength() {
+                return pokemon.strength();
+            }
+
+            @Override
+            public int defense() {
+                return pokemon.defense() + defUp;
+            }
+
+            @Override
+            public int hitPoints() {
+                return pokemon.hitPoints();
+            }
+
+            @Override
+            public boolean isAlive() {
+                return pokemon.isAlive();
+            }
+
+            @Override
+            public void damage(int amount) {
+                pokemon.damage(amount);
+            }
+
+            @Override
+            public String toString(){
+                return "Pokemon{" +
+                        "name='" + pokemon.name() + '\'' +
+                        ", strength=" + strength() +
+                        ", defense=" + defense() +
+                        ", hitPoints=" + pokemon.hitPoints() +
+                        '}';
+            }
+        };
+    }
+}
